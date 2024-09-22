@@ -1,12 +1,12 @@
-import Products from "./components/Products/Products";
 import { products as initialProducts } from "./mocks/products.json";
+
+import Products from "./components/Products/Products";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
-      <div>
-        <h1>React Shop</h1>
-      </div>
+      <Header />
 
       <Products products={initialProducts} />
     </>
