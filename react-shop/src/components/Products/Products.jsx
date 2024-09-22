@@ -2,13 +2,13 @@ import ProductCard from "./ProductCard";
 
 const Products = ({ products }) => {
   return (
-    <div>
+    <main>
       <ul>
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </ul>
-    </div>
+    </main>
   );
 };
 
