@@ -1,5 +1,7 @@
 import ProductCard from "./ProductCard";
 
+import './Products.css'
+
 const Products = ({ products }) => {
   return (
     <main>
