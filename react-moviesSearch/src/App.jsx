@@ -7,7 +7,7 @@ import { useSearch } from "./hooks/useSearch";
 import { useMovies } from "./hooks/useMovies";
 
 function App() {
-  const { search, updateSearch } = useSearch();
+  const { search, updateSearch, alreadySearched } = useSearch();
   const { movies, getMovies, loading } = useMovies({ search });
 
   const handleChange = (event) => {
@@ -18,6 +18,7 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     getMovies();
+    alreadySearched.current = true;
   };
 
   return (
@@ -31,7 +32,16 @@ function App() {
         />
         <button type="submit">Buscar</button>
       </form>
-      <main>{loading ? <p>Cargando...</p> : <Movies movies={movies} />}</main>
+
+      <main>
+        {!alreadySearched.current ? (
+          <p>Realiaza tu busqueda</p>
+        ) : loading ? (
+          <p>Cargando...</p>
+        ) : (
+          <Movies movies={movies} />
+        )}
+      </main>
     </header>
   );
 }

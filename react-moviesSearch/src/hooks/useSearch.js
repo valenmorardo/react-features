@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useSearch() {
   const [search, updateSearch] = useState("");
+
+  const alreadySearched = useRef(false)
+  
 
   useEffect(() => { // errores
     if (search.length < 3) {
@@ -10,5 +13,5 @@ export function useSearch() {
     return
   }, [search]);
 
-  return {search, updateSearch}
+  return {search, updateSearch, alreadySearched}
 }
