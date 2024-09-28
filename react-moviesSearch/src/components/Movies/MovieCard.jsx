@@ -1,9 +1,9 @@
 export function MovieCard(movie) {
   return (
-    <li key={movie.imdbID}>
-      <img src={movie.Poster} />
+    <li key={movie.id}>
+      <img src={movie.image} />
       <p>
-        {movie.Title} - {movie.Year}
+        {movie.title} - {movie.year}
       </p>
     </li>
   );

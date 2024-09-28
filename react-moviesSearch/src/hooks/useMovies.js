@@ -1,15 +1,17 @@
+import { useState } from "react";
+import { fetchingMovies } from "../services/fetchingMovies";
 
-import { useState } from 'react';
-import moviesMock from '../mocks/with-results.json'
+export function useMovies({ search }) {
+  const [movies, setMovies] = useState([]);
 
-
-export function useMovies({search}) {
-    const [movies, setMovies] = useState([]);
-
-    const getMovies = () => {
-        console.log(search)
-        setMovies(moviesMock.Search)
+  const getMovies = async () => {
+    try {
+      const newMovies = await fetchingMovies({ movieName: search });
+      setMovies(newMovies);
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    return {movies, getMovies}
+  return { movies, getMovies };
 }

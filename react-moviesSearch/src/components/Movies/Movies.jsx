@@ -9,7 +9,7 @@ export function Movies({ movies }) {
       ) : (
         <ul>
           {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} {...movie} />
+            <MovieCard key={movie.id} {...movie} />
           ))}
         </ul>
       )}
