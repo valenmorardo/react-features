@@ -4,31 +4,24 @@ import resultsMovies from "./mocks/with-results.json";
 import { Movies } from "./components/Movies/Movies";
 import { useEffect, useState } from "react";
 
+import { useSearch } from "./hooks/useSearch";
+
 function App() {
   const moviesMock = resultsMovies.Search;
+  const { search, updateSearch } = useSearch();
 
-  const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const [errors, setErrors] = useState("");
 
   const handleChange = (event) => {
     const newSearch = event.target.value;
-    setSearch(newSearch);
+    updateSearch(newSearch);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return setMovies(moviesMock)
+    return setMovies(moviesMock);
   };
-
-  useEffect(() => {
-    if (search.length < 3) {
-      return setErrors(
-        "El nombre de la pelicula debe tener mas de 3 caracteres"
-      );
-    }
-    return setErrors();
-  }, [search]);
 
   return (
     <header>
