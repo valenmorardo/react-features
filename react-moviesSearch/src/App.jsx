@@ -5,12 +5,12 @@ import { Movies } from "./components/Movies/Movies";
 import { useEffect, useState } from "react";
 
 import { useSearch } from "./hooks/useSearch";
+import { useMovies } from "./hooks/useMovies";
 
 function App() {
-  const moviesMock = resultsMovies.Search;
   const { search, updateSearch } = useSearch();
+  const { movies, getMovies } = useMovies({search});
 
-  const [movies, setMovies] = useState([]);
   const [errors, setErrors] = useState("");
 
   const handleChange = (event) => {
@@ -20,7 +20,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return setMovies(moviesMock);
+    getMovies();
   };
 
   return (
