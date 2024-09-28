@@ -1,11 +1,18 @@
 import { MovieCard } from "./MovieCard";
 
 export function Movies({ movies }) {
+  console.log(movies)
   return (
-    <ul>
-      {movies.map((movie) => (
-        <MovieCard key={movie.imdbID} {...movie} />
-      ))}
-    </ul>
+    <div>
+      {!movies.length ? (
+        <p>No hay movies</p>
+      ) : (
+        <ul>
+          {movies.map((movie) => (
+            <MovieCard key={movie.imdbID} {...movie} />
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
