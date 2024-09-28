@@ -4,8 +4,8 @@ export function Movies({ movies }) {
 
   return (
     <div>
-      {!movies.length ? (
-        <p>No hay movies</p>
+      {movies.Error ? (
+        <p>{movies.Error}</p>
       ) : (
         <ul>
           {movies.map((movie) => (

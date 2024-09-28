@@ -3,9 +3,11 @@ import { fetchingMovies } from "../services/fetchingMovies";
 
 import { useRef } from "react";
 
+import { formatMovies } from "../services/formatMovies";
+
 export function useMovies({ search }) {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const previousSearch = useRef(search);
 
@@ -14,14 +16,19 @@ export function useMovies({ search }) {
       return;
     }
     try {
-      setLoading(true)
+      setLoading(true);
       previousSearch.current = search;
-      const newMovies = await fetchingMovies({ movieName: search });
-      setMovies(newMovies);
+      const moviesResponse = await fetchingMovies({ movieName: search });
+      
+      if (moviesResponse.Search) {
+        const newMovies = formatMovies(moviesResponse.Search);
+        return setMovies(newMovies);
+      }
+      return setMovies(moviesResponse);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 

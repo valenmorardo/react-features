@@ -5,11 +5,14 @@ import { Movies } from "./components/Movies/Movies";
 
 import { useSearch } from "./hooks/useSearch";
 import { useMovies } from "./hooks/useMovies";
+import { useRef, useState } from "react";
 
 function App() {
-  const { search, updateSearch, alreadySearched } = useSearch();
+  const { search, updateSearch } = useSearch();
   const { movies, getMovies, loading } = useMovies({ search });
 
+
+  const alreadySearched = useRef(false)
   const handleChange = (event) => {
     const newSearch = event.target.value;
     updateSearch(newSearch);
