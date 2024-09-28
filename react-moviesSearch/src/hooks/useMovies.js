@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchingMovies } from "../services/fetchingMovies";
 
-export function useMovies({ search }) {
+export function useMovies({ search}) {
   const [movies, setMovies] = useState([]);
 
   const getMovies = async () => {
@@ -9,7 +9,7 @@ export function useMovies({ search }) {
       const newMovies = await fetchingMovies({ movieName: search });
       setMovies(newMovies);
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
 

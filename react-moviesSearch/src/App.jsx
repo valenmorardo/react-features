@@ -2,16 +2,13 @@ import "./App.css";
 
 import resultsMovies from "./mocks/with-results.json";
 import { Movies } from "./components/Movies/Movies";
-import { useEffect, useState } from "react";
 
 import { useSearch } from "./hooks/useSearch";
 import { useMovies } from "./hooks/useMovies";
 
 function App() {
   const { search, updateSearch } = useSearch();
-  const { movies, getMovies } = useMovies({search});
-
-  const [errors, setErrors] = useState("");
+  const { movies, getMovies } = useMovies({ search });
 
   const handleChange = (event) => {
     const newSearch = event.target.value;

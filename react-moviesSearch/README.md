@@ -3,10 +3,8 @@
 Crea una aplicación para buscar películas
 
 API a usar: - http://www.omdbapi.com/?apikey=bdd97895&s=${MOVIE_NAME}
-Consigue la API Key en la propia página web registrando tu email.
 
 Requerimientos:
-✅
 
 ✅ Necesita mostrar un input para buscar la película y un botón para buscar.
 
@@ -14,7 +12,7 @@ Requerimientos:
 
 ✅ Que el formulario funcione
 
-Hacer el fetching de datos a la API
+✅ Hacer el fetching de datos a la API
 
 Haz que las películas se muestren en un grid responsive.
 
