@@ -8,7 +8,7 @@ import { useMovies } from "./hooks/useMovies";
 
 function App() {
   const { search, updateSearch } = useSearch();
-  const { movies, getMovies } = useMovies({ search });
+  const { movies, getMovies, loading } = useMovies({ search });
 
   const handleChange = (event) => {
     const newSearch = event.target.value;
@@ -31,9 +31,7 @@ function App() {
         />
         <button type="submit">Buscar</button>
       </form>
-      <main>
-        <Movies movies={movies} />
-      </main>
+      <main>{loading ? <p>Cargando...</p> : <Movies movies={movies} />}</main>
     </header>
   );
 }

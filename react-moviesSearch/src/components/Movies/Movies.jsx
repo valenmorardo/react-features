@@ -1,7 +1,7 @@
 import { MovieCard } from "./MovieCard";
 
 export function Movies({ movies }) {
-  console.log(movies)
+
   return (
     <div>
       {!movies.length ? (
