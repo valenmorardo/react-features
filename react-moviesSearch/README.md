@@ -6,12 +6,11 @@ API a usar: - http://www.omdbapi.com/?apikey=bdd97895&s=${MOVIE_NAME}
 Consigue la API Key en la propia página web registrando tu email.
 
 Requerimientos:
-
 ✅
 
-Necesita mostrar un input para buscar la película y un botón para buscar.
+✅ Necesita mostrar un input para buscar la película y un botón para buscar.
 
-Lista las películas y muestra el título, año y poster.
+✅ Lista las películas y muestra el título, año y poster.
 
 Que el formulario funcione
 
