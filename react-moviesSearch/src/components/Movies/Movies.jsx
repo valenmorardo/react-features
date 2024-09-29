@@ -3,7 +3,7 @@ import { MovieCard } from "./MovieCard";
 export function Movies({ movies }) {
 
   return (
-    <div>
+    <section>
       {movies.Error ? (
         <p>{movies.Error}</p>
       ) : (
@@ -13,6 +13,6 @@ export function Movies({ movies }) {
           ))}
         </ul>
       )}
-    </div>
+    </section>
   );
 }

@@ -1,18 +1,16 @@
 import "./App.css";
 
-import resultsMovies from "./mocks/with-results.json";
 import { Movies } from "./components/Movies/Movies";
 
 import { useSearch } from "./hooks/useSearch";
 import { useMovies } from "./hooks/useMovies";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 
 function App() {
   const { search, updateSearch } = useSearch();
   const { movies, getMovies, loading } = useMovies({ search });
 
-
-  const alreadySearched = useRef(false)
+  const alreadySearched = useRef(false);
   const handleChange = (event) => {
     const newSearch = event.target.value;
     updateSearch(newSearch);
