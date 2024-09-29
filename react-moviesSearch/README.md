@@ -14,6 +14,6 @@ Requerimientos:
 
 ✅ Hacer el fetching de datos a la API
 
-Haz que las películas se muestren en un grid responsive.
+✅ Haz que las películas se muestren en un grid responsive.
 
 ✅Evitar que se haga la misma búsqueda dos veces seguidas.
