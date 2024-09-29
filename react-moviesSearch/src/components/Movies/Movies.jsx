@@ -1,18 +1,19 @@
 import { MovieCard } from "./MovieCard";
 
+import './Movies.css'
 export function Movies({ movies }) {
 
   return (
-    <section>
+    <>
       {movies.Error ? (
         <p>{movies.Error}</p>
       ) : (
-        <ul>
+        <ul className="list-movies">
           {movies.map((movie) => (
             <MovieCard key={movie.id} {...movie} />
           ))}
         </ul>
       )}
-    </section>
+    </>
   );
 }

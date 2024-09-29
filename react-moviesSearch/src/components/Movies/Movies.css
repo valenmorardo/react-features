@@ -1,0 +1,23 @@
+.list-movies {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+img {
+  width: 65%;
+  border-radius: 10px;
+}
+
+li p {
+  font-size: 1.2rem;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

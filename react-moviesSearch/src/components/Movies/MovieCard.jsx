@@ -1,3 +1,5 @@
+import './Movies.css'
+
 export function MovieCard(movie) {
   return (
     <li key={movie.id}>

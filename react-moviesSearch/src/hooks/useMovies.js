@@ -15,7 +15,9 @@ export function useMovies({ search }) {
     if (previousSearch.current === search) {
       return;
     }
+
     try {
+
       setLoading(true);
       previousSearch.current = search;
       const moviesResponse = await fetchingMovies({ movieName: search });

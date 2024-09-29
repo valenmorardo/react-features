@@ -4,7 +4,7 @@ import { Movies } from "./components/Movies/Movies";
 
 import { useSearch } from "./hooks/useSearch";
 import { useMovies } from "./hooks/useMovies";
-import { useRef} from "react";
+import { useRef } from "react";
 
 function App() {
   const { search, updateSearch } = useSearch();
@@ -23,17 +23,18 @@ function App() {
   };
 
   return (
-    <header>
-      <h1>React Movies</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Movie name..."
-          onChange={handleChange}
-        />
-        <button type="submit">Buscar</button>
-      </form>
-
+    <div className="page">
+      <header>
+        <h1>React Movies</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Movie name..."
+            onChange={handleChange}
+          />
+          <button type="submit">Buscar</button>
+        </form>
+      </header>
       <main>
         {!alreadySearched.current ? (
           <p>Realiaza tu busqueda</p>
@@ -43,7 +44,7 @@ function App() {
           <Movies movies={movies} />
         )}
       </main>
-    </header>
+    </div>
   );
 }
 
