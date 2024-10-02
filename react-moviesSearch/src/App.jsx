@@ -31,8 +31,11 @@ function App() {
             type="text"
             placeholder="Movie name..."
             onChange={handleChange}
+            value={search}
           />
-          <button type="submit">Buscar</button>
+          <button type="submit" disabled={search.length <= 3}>
+            Buscar
+          </button>
         </form>
       </header>
       <main>

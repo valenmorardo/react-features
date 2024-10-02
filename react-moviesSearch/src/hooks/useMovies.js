@@ -17,15 +17,15 @@ export function useMovies({ search }) {
     }
 
     try {
-
       setLoading(true);
       previousSearch.current = search;
       const moviesResponse = await fetchingMovies({ movieName: search });
-      
       if (moviesResponse.Search) {
         const newMovies = formatMovies(moviesResponse.Search);
+        console.log(moviesResponse);
         return setMovies(newMovies);
       }
+
       return setMovies(moviesResponse);
     } catch (error) {
       console.log(error);
