@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { FiltersContext } from "../context/filtersContext";
 
+import { FiltersContext } from "../context/filtersContext";
 export function useFilters() {
   const { filters, setFilters } = useContext(FiltersContext);
 
@@ -8,10 +8,10 @@ export function useFilters() {
     return products.filter((product) => {
       return (
         product.price >= filters.minPrice &&
-        (filters.category === "all" || filters.category === product.category)
+        (filters.category === "all" || product.category === filters.category)
       );
     });
   };
 
-  return { filterProducts, filters, setFilters };
+  return { setFilters, filterProducts, filters };
 }

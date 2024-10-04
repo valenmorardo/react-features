@@ -1,9 +1,38 @@
-main ul{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 12px;
-    width: auto;
-
+main ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  margin: 0;
+  padding: 0;
 }
 
+main li {
+  list-style: none;
+  padding: 30px;
+  background-color: #171717;
+  width: 60%;
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+main li img {
+  width: 75%;
+}
+
+/* li .product-data {
+
+  margin-bottom: 25px;
+
+} */
+main li button {
+  padding: 15px 25px 15px 25px;
+  border-radius: 20px;
+  background-color: #777777;
+  border-style: none;
+}

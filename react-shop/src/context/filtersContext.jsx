@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const FiltersContext = createContext();
 
-export const FiltersProvider = ({ children }) => {
+export function FiltersProvider({ children }) {
   const [filters, setFilters] = useState({
     category: "all",
     minPrice: 0,
@@ -13,4 +13,4 @@ export const FiltersProvider = ({ children }) => {
       {children}
     </FiltersContext.Provider>
   );
-};
+}

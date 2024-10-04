@@ -1,56 +1,79 @@
+.cart-button {
+  position: fixed;
+  padding: 16px;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  z-index: 9999;
+  background-color: #777777;
+  border-radius: 20px;
+}
 .cart {
-    background: #000;
-    display: none;
-    padding: 32px;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    width: 200px;
-  }
-  
-  .cart img {
-    aspect-ratio: 16/9;
-    width: 100%;
-  }
-  
-  .cart li {
-    border-bottom: 1px solid #444;
-    padding-bottom: 16px;
-  }
-  
-  .cart footer {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cart footer button {
-    padding: 8px;
-  }
-  
-  .cart-button {
-    align-items: center;
-    background: #09f;
-    border-radius: 9999px;
-    cursor: pointer;
-    display: flex;
-    height: 32px;
-    justify-content: center;
-    padding: 4px;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    transition: all .3s ease;
-    width: 32px;
-    z-index: 9999;
-  }
-  
-  .cart-button:hover {
-    scale: 1.1;
-  }
-  
-  .cart-button ~ input:checked ~ .cart {
-    height: 100%;
-    display: block;
-  }
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  display: none;
+  padding: 32px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  width: 350px;
+
+  max-height: 800px;
+  height: auto;
+  overflow-y: auto; /* Agrega scroll vertical si el contenido es demasiado grande */
+  scrollbar-width: thin;
+  border-radius: 20px;
+}
+
+.products-cart-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-right: 40px;
+}
+
+.products-cart-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  width: 100%;
+  padding: 0;
+  margin-top: 40px;
+  overflow-y: auto;
+}
+.products-cart-container li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  list-style: none;
+  padding-bottom: 20px;
+  border: #777777 2px solid;
+  border-radius: 10px;
+}
+.btn-eliminate-item {
+  display: flex;
+  align-self: flex-end;
+  padding: 6px;
+  margin: 5px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.cart-button ~ input:checked ~ .cart {
+  height: 100%;
+  display: block;
+}
+
+.clearCart {
+  padding: 16px;
+
+  width: 20%;
+  background-color: #777777;
+  border-radius: 20px;
+  border: none;
+}

@@ -1,77 +1,60 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer} from "react";
 
 export const CartContext = createContext();
 
-const initialState = [];
+const cartinitialState = [];
 
-const reducer = (state, action) => {
+const CartReducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action;
 
-  if (actionType === "ADD_TO_CART") {
-    const { id } = actionPayload;
-    const productInCartIndex = state.findIndex((item) => item.id === id);
-    if (productInCartIndex >= 0) {
-      const newCart = structuredClone(state);
-      newCart[productInCartIndex].quantity += 1;
-      console.log(newCart);
-      return newCart;
+  switch (actionType) {
+    case "ADD_TO_CART": {
+      const { id: productId } = actionPayload;
+
+      //check if product it is already in cart
+      const productInCartIndex = state.findIndex(
+        (item) => item.id === productId
+      );
+
+      if (productInCartIndex >= 0) {
+        const newCart = structuredClone(state);
+        newCart[productInCartIndex].quantity += 1;
+        return newCart;
+      }
+
+      // si no esta en el cart:
+      return [...state, { ...actionPayload, quantity: 1 }];
     }
 
-    // IF isnt in the car
-    return [
-      ...state,
-      {
-        ...actionPayload, // product
-        quantity: 1,
-      },
-    ];
-  }
+    case "REMOVE_FROM_CART": {
+      const { id: productId } = actionPayload;
+      return state.filter((item) => item.id !== productId);
+    }
 
-  if (actionType === "REMOVE_FROM_CART") {
-    const { id } = actionPayload;
-    const newCart = state.filter((item) => item.id !== id);
-    return newCart;
+    case "CLEAR_CART":
+      return cartinitialState;
   }
-
-  if (actionType === "CLEAR_CART") {
-    return initialState;
-  }
-
-  return state;
 };
 
-export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export function CartProvider({ children }) {
+  const [state, dispatch] = useReducer(CartReducer, cartinitialState);
 
   const addToCart = (product) => {
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: product,
-    });
+    dispatch({ type: "ADD_TO_CART", payload: product });
   };
   const removeFromCart = (product) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      payload: product,
-    });
-  };
-  const clearCart = () => {
-    dispatch({
-      type: "CLEAR_CART",
-    });
+    dispatch({ type: "REMOVE_FROM_CART", payload: product });
   };
 
-  console.log(state);
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   return (
     <CartContext.Provider
-      value={{
-        cart: state,
-        addToCart,
-        removeFromCart,
-        clearCart,
-      }}
+      value={{ addToCart, cart: state, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
-};
+}

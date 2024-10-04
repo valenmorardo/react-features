@@ -1,0 +1,44 @@
+.filters-container {
+  display: flex;
+  flex-direction: row;
+  gap: 128px;
+  margin-top: 3rem;
+
+  font-size: 1.2rem;
+}
+
+.filters-container label,
+span {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.range-filter input {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #777777; 
+  border-radius: 10px; 
+  outline: none;
+
+  height: 7px;
+
+  cursor: pointer;
+}
+
+.range-filter input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: rgb(245, 245, 247);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+select {
+  padding: 3px;
+  border: 2px solid black;
+  background-color: #777777;
+  cursor: pointer;
+}
+
