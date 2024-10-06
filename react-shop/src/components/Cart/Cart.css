@@ -1,8 +1,8 @@
 .cart-button {
   position: fixed;
   padding: 16px;
-  right: 15px;
-  top: 15px;
+  right: 40px;
+  top: 20px;
   width: 32px;
   z-index: 9999;
   background-color: #777777;
@@ -17,7 +17,7 @@
   position: fixed;
   right: 15px;
   top: 15px;
-  width: 350px;
+  width: 450px;
 
   max-height: 800px;
   height: auto;
@@ -28,8 +28,8 @@
 
 .products-cart-container {
   flex-grow: 1;
-  overflow-y: auto;
-  margin-right: 40px;
+
+  margin-right: 60px;
 }
 
 .products-cart-container ul {
@@ -39,7 +39,7 @@
   width: 100%;
   padding: 0;
   margin-top: 40px;
-  overflow-y: auto;
+
 }
 .products-cart-container li {
   display: flex;
